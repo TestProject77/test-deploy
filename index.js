@@ -8,13 +8,13 @@ const exportData = () => {
   console.log(name);
 };
 
-const cronExpression = "*/15 * * * * *";
-// check if exp is valid
-if (cron.validate(cronExpression)) {
-  cron.schedule(cronExpression, () => {
-    exportData();
-  });
-}
+// const cronExpression = "*/15 * * * * *";
+// // check if exp is valid
+// if (cron.validate(cronExpression)) {
+//   cron.schedule(cronExpression, () => {
+//     exportData();
+//   });
+// }
 
 // Middleware
 app.use(express.json());
@@ -22,6 +22,10 @@ app.use(express.json());
 // Simple GET route
 app.get("/", (req, res) => {
   res.send("Hello, World!");
+});
+
+app.get("/data", (req, res) => {
+  res.send("data");
 });
 
 // Simple POST route
